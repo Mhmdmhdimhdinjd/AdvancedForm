@@ -433,7 +433,7 @@ const Form = ({ Controller, control, watch, placeholder, setValue, clearErrors, 
                                     )}
                                 />
 
-                                <h6>{errors.date?.message}</h6>
+                                <h6 className="mt-1 text-danger">{errors.date?.message}</h6>
 
                             </FormGroup>
 
