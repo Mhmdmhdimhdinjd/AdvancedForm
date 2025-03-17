@@ -2,7 +2,7 @@
 import React, { useMemo, useState } from "react";
 import { useReactTable, flexRender, getCoreRowModel } from "@tanstack/react-table";
 import { Table, Button } from "reactstrap";
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../../context/themecontext'
 
 
 const DataTable = ({ data, onDelete, onView }) => {
