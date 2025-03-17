@@ -433,7 +433,7 @@ const Form = ({ Controller, control, watch, placeholder, setValue, clearErrors, 
                                     )}
                                 />
 
-                                <FormFeedback>{errors.date?.message}</FormFeedback>
+                                <h6>{errors.date?.message}</h6>
 
                             </FormGroup>
 
