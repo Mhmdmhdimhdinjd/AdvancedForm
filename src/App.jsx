@@ -3,7 +3,7 @@ import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Form from "./components/form";
-import Navbar__comp from "./components/Navbar";
+import Navbar__comp from "./components/navbar";
 import Asidebar from "./components/aside";
 import TableComp from "./components/table/container.jsx";
 import { useDispatch } from "react-redux";
