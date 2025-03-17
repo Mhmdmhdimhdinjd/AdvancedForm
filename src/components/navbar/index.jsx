@@ -51,7 +51,7 @@ const Navbar__comp = () => {
           <NavItem className="mx-2">
             <RiTranslate2 size={24} />
           </NavItem>
-          <NavItem onClick={toggleOffcanvas}>
+          <NavItem className="d-block d-sm-none" onClick={toggleOffcanvas}>
           <CiMenuFries size={24} />
           </NavItem>
         </Nav>
