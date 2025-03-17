@@ -7,7 +7,7 @@ import logo from '../../assets/image/برنج نی نی 2.jpg';
 import { HiOutlineBell, HiOutlineSearch } from "react-icons/hi";
 import { TbApps } from "react-icons/tb";
 import { RiTranslate2 } from "react-icons/ri";
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../../context/themecontext'
 import { CiMenuFries } from "react-icons/ci";
 
 const Navbar__comp = () => {
