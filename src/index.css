@@ -95,7 +95,7 @@ button {
 
 
 
-@media (max-width:504px) {
+@media (max-width:528px) {
   .navbar > .container-fluid{
       justify-content: center !important;
   }
