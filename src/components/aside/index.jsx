@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Nav, NavItem, NavLink, Button, AccordionHeader, Accordion, AccordionBody, AccordionItem , Offcanvas} from 'reactstrap';
+import { Nav, NavItem, NavLink, Button, AccordionHeader, Accordion, AccordionBody, AccordionItem, Offcanvas } from 'reactstrap';
 import {
     FaShopify,
     FaBook,
@@ -27,7 +27,7 @@ import { useTheme } from '../../context/themecontext';
 
 const Sidebar = () => {
 
-    const { isDark , isOpen , toggleOffcanvas } = useTheme();
+    const { isDark, isOpen, toggleOffcanvas } = useTheme();
 
     const [textcolor, settextcolor] = useState(isDark ? 'text-white' : 'text-dark')
 
@@ -47,15 +47,14 @@ const Sidebar = () => {
     }, [isDark]);
 
 
-  
+
 
     return (
         <>
             <div
-                className={`d-none d-sm-block ${isDark && 'bg-dark'}`}
+                className={`ms-3 d-none d-sm-block shadow ${isDark ? 'bg-dark' : 'bg-white'}`}
                 style={{
                     width: '250px',
-                    marginLeft: 'auto'
                 }}
                 dir="rtl" >
 
@@ -178,8 +177,7 @@ const Sidebar = () => {
                     </Nav>
                 </div>
 
-                {/* بخش پایین، منوهای مدیریتی */}
-                <div className={` pt-3 border-top ${isDark && 'bg-dark'}`}>
+                <div className='pt-3 border-top'>
                     <Nav vertical>
                         <NavItem>
                             <NavLink href="#" className={textcolor}>
@@ -198,12 +196,12 @@ const Sidebar = () => {
             </div>
 
             <Offcanvas
-                className={`d-block d-sm-none ${isDark && 'bg-dark'}`}
+                className={` d-block d-sm-none ${isDark ? 'bg-dark' : 'bg-white'}`}
                 style={{
                     width: '250px',
                     marginLeft: 'auto',
-                    maxHeight:'100vh',
-                    overflow:'scroll'
+                    maxHeight: '100vh',
+                    overflow: 'scroll'
                 }}
                 dir="rtl"
                 isOpen={isOpen}

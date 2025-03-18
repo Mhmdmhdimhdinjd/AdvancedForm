@@ -17,10 +17,8 @@ const Navbar__comp = () => {
     toggleTheme()
   };
 
-
   return (
-    <div className={isDark ? "dark-mode" : "light-mode"}>
-      <Navbar className="shadow-sm rounded hidden-overflow">
+      <Navbar className={`mt-2 shadow-sm rounded hidden-overflow ${isDark ? "bg-dark text-white" : "bg-white text-black"}`}>
 
         <Nav className="align-items-center">
           <NavItem className="position-relative mx-2">
@@ -81,8 +79,6 @@ const Navbar__comp = () => {
         </NavbarText>
 
       </Navbar>
-
-    </div>
   );
 };
 

@@ -11,8 +11,8 @@ export const ThemeProvider = ({ children }) => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setIsDark(savedTheme === 'dark');
-      document.documentElement.setAttribute('data-theme', savedTheme);
-      document.getElementById('root').classList.add(savedTheme);
+      document.getElementById('root').setAttribute('class', savedTheme);
+      // document.getElementById('root').classList.add(savedTheme);
     }
   }, []);
 
@@ -20,8 +20,8 @@ export const ThemeProvider = ({ children }) => {
     const newTheme = !isDark ? 'dark' : 'light';
     setIsDark(!isDark);
     localStorage.setItem('theme', newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-    document.getElementById('root').classList.toggle('dark');
+    document.getElementById('root').setAttribute('class', newTheme);
+    // document.getElementById('root').classList.toggle('dark');
   };
 
   const toggleOffcanvas = () => setIsOpen(!isOpen);

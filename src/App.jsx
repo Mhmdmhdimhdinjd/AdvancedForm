@@ -8,8 +8,12 @@ import Asidebar from "./components/aside";
 import TableComp from "./components/table/container.jsx";
 import { useDispatch } from "react-redux";
 import { addDataEntry } from "./redux/reducer/dataslice.js";
+import { useTheme } from './context/themecontext'
+
 
 const App = () => {
+
+  const { isDark } = useTheme();
 
   const dispatch = useDispatch()
 
@@ -58,7 +62,7 @@ const App = () => {
 
   });
 
-  const { control, reset, handleSubmit, setValue, getValues, watch ,clearErrors, formState: { errors } } = useForm({
+  const { control, reset, handleSubmit, setValue, getValues, watch, clearErrors, formState: { errors } } = useForm({
     defaultValues: {
       first__name: "",
       last__name: "",
@@ -84,22 +88,29 @@ const App = () => {
 
   return (
     <>
-      <Navbar__comp />
-      <div style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+      <div className={`d-flex flex-row-reverse container`} data-bs-theme={isDark && "dark"} >
+
         <Asidebar />
-        <div>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Form
-              Controller={Controller}
-              control={control}
-              watch={watch}
-              setValue={setValue}
-              getValues={getValues}
-              errors={errors}
-              clearErrors={clearErrors}
-            />
-          </form>
-          <TableComp data={data} setData={setData} />
+
+        <div className=" w-100">
+
+          <Navbar__comp />
+
+          <div className={`p-3 mt-3 shadow rounded ${isDark ? 'bg-dark' : 'bg-white'}`}>
+
+            <form className={isDark && "text-white"} onSubmit={handleSubmit(onSubmit)}>
+              <Form
+                Controller={Controller}
+                control={control}
+                watch={watch}
+                setValue={setValue}
+                getValues={getValues}
+                errors={errors}
+                clearErrors={clearErrors}
+              />
+            </form>
+            <TableComp data={data} setData={setData} />
+          </div>
         </div>
       </div>
     </>
