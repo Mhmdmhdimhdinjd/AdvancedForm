@@ -98,7 +98,7 @@ const App = () => {
 
           <div className={`p-3 mt-3 shadow rounded ${isDark ? 'bg-dark' : 'bg-white'}`}>
 
-            <form className={isDark && "text-white"} onSubmit={handleSubmit(onSubmit)}>
+            <form className={isDark ? "text-white" : undefined} onSubmit={handleSubmit(onSubmit)}>
               <Form
                 Controller={Controller}
                 control={control}

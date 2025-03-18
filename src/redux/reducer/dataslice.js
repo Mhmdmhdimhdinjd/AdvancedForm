@@ -34,8 +34,22 @@ const dataSlice = createSlice({
       saveToLocalStorage(state);
       console.log('Updated state:', JSON.stringify(state, null, 2));
     },
+    // setData:(state,action)=>{
+    //   console.log('jj')
+    //   const newData = state.data.filter((item) => item.action.payload !== action.payload)
+    //   state.data = newData
+    // }
+
+    setData: (state, action) => {
+      // const updatedState = state.filter((item) => item.id !== action.payload);
+      saveToLocalStorage(action.payload);
+      console.log(action.payload)
+      return action.payload;
+    },
+
+    
   },
 });
 
-export const { addDataEntry } = dataSlice.actions;
+export const { addDataEntry , setData } = dataSlice.actions;
 export default dataSlice.reducer;

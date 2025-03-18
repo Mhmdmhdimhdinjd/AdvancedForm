@@ -5,16 +5,21 @@ import { saveAs } from "file-saver";
 import JoditEditor from 'jodit-react';
 import fa from './fa';
 import DataTable from './index'
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch } from "react-redux";
+import { setData } from "../../redux/reducer/dataslice";
 
 const container = () => {
+
+const dispatch=useDispatch()
+
     const data = useSelector((state) => state.data);
 
     const [selectedItem, setSelectedItem] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
 
     const handleDelete = (id) => {
-        setData(data.filter((item) => item.id !== id));
+        dispatch(setData(data.filter((item) => item.id !== id)));
+
     };
 
     const handleView = (item) => {
