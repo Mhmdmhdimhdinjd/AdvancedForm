@@ -94,11 +94,11 @@ const Form = ({ Controller, control, watch, placeholder, setValue, clearErrors, 
 
         <Container className={isDark && "bg-dark text-white"} data-bs-theme={isDark && "dark"} dir="rtl">
 
-            <Row className="pt-3 align-items-center justify-content-center">
+            {/* <Row className="pt-3 align-items-center justify-content-center">
 
-                <Col lg={9}>
+                <Col lg={9}> */}
 
-                    <Row>
+                    <Row className="pt-3">
 
                         <Col md={6} xs={12}>
 
@@ -477,7 +477,7 @@ const Form = ({ Controller, control, watch, placeholder, setValue, clearErrors, 
 
                     </Row>
 
-                </Col>
+                {/* </Col>
 
                 <Col lg={3} sm={4} xs={6} >
 
@@ -485,7 +485,7 @@ const Form = ({ Controller, control, watch, placeholder, setValue, clearErrors, 
 
                 </Col>
 
-            </Row>
+            </Row> */}
 
         </Container>
 
