@@ -88,7 +88,7 @@ const App = () => {
 
   return (
     <>
-      <div className={`d-flex flex-row-reverse container`} data-bs-theme={isDark && "dark"} >
+      <div className='container-lg d-flex flex-row-reverse' data-bs-theme={isDark && "dark"} >
 
         <Asidebar />
 

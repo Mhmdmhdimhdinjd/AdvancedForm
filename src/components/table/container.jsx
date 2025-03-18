@@ -5,12 +5,12 @@ import { saveAs } from "file-saver";
 import JoditEditor from 'jodit-react';
 import fa from './fa';
 import DataTable from './index'
-import { useSelector , useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setData } from "../../redux/reducer/dataslice";
 
 const container = () => {
 
-const dispatch=useDispatch()
+    const dispatch = useDispatch()
 
     const data = useSelector((state) => state.data);
 
@@ -28,11 +28,22 @@ const dispatch=useDispatch()
     };
 
     const handleExportExcel = () => {
+
+        console.log(data)
         const transformedData = data.map(item => ({
-            ...item,
-            city: item.city?.label || null,// اگر city وجود داشت label آن را بگیر، در غیر این صورت null بگذار
-            Province: item.Province?.label || null // اگر city وجود داشت label آن را بگیر، در غیر این صورت null بگذار
-        }))
+            'نام': item.first__name,
+            'نام خانوادگی': item.last__name,
+            'تاریخ تولد': item.date,
+            'نوع کاربر': item.idType === "national" ? 'حقیقی' : 'حقوقی',
+            [item.idType === "national" ? 'کدملی' : 'شناسه اقتصادی']: item.idNumber, // Dynamic column name based on idType
+            'شهر': item.city?.label || null,
+            'استان': item.Province?.label || null,
+            "شغل پاره‌وقت": item.part_time_job ? "بله" : "خیر",
+            "شغل تمام وقت": item.full_time_job ? "بله" : "خیر",
+            'کد پستی': item.postal_code,
+            'رزومه': item.resume,
+        }));
+        
         const worksheet = XLSX.utils.json_to_sheet(transformedData);
         const workbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(workbook, worksheet, "Data");

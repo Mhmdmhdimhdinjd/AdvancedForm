@@ -56,6 +56,7 @@ const Form = ({ Controller, control, watch, setValue, clearErrors, errors }) => 
     useEffect(() => {
 
         setselectedOption(watch('Province'))
+        setValue('city', null)
 
     }, [watch('Province')
     ]);
@@ -87,7 +88,7 @@ const Form = ({ Controller, control, watch, setValue, clearErrors, errors }) => 
 
 
 
-        <Row className='mb-3'  dir="rtl">
+        <Row className='mb-3' dir="rtl">
 
             <Col md={6} xs={12}>
 
@@ -231,6 +232,7 @@ const Form = ({ Controller, control, watch, setValue, clearErrors, errors }) => 
                                 menu: (base) => ({
                                     ...base,
                                     backgroundColor: isDark ? '#2d2d2d' : base.backgroundColor,
+                                    zIndex: 3,
                                 }),
                                 singleValue: (base) => ({
                                     ...base,
@@ -273,8 +275,13 @@ const Form = ({ Controller, control, watch, setValue, clearErrors, errors }) => 
                             <Input
                                 {...field}
                                 placeholder="کد پستی خود را وارد کنید"
-                                type='number'
+                                type='text'
+                                maxLength={10}
                                 invalid={errors.postal_code}
+                                onInput={(e) => {
+                                    // جلوگیری از وارد کردن کاراکترهای غیرعددی
+                                    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                                }}
                             />
                         )}
                     />
@@ -305,7 +312,16 @@ const Form = ({ Controller, control, watch, setValue, clearErrors, errors }) => 
                                     }
                                     type="number"
                                     dir="rtl"
+                                    maxLength={
+                                        selectedType === 'national'
+                                            ? 10
+                                            : 12
+                                    }
                                     invalid={!!errors.idNumber}
+                                    onInput={(e) => {
+                                        // جلوگیری از وارد کردن کاراکترهای غیرعددی
+                                        e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                                    }}
                                 />
                             )}
                         />
